@@ -1,0 +1,17 @@
+.main-nav {
+  height: 4.37rem;
+  background-color: #da5c5c;
+  padding-left: 2.81rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  padding-left: 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 2.06rem;
+  letter-spacing: -0.015em;
+
+  color: #fff;
+}
