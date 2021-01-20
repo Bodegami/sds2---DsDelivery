@@ -15,4 +15,5 @@ export type Product = {
   price: number;
   description: string;
   imageUri: string;
+  quantity: number;
 };
