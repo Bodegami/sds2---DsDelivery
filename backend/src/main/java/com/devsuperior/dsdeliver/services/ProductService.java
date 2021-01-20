@@ -23,4 +23,10 @@ public class ProductService {
 		return list.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
 	}
 
+	public ProductDTO insert(ProductDTO dto) {
+		Product product = new Product(null, dto.getName(), dto.getPrice(), dto.getDescription(),
+				dto.getImageUri(), dto.getQuantity()); 
+		product = repository.save(product);
+		return new ProductDTO(product);
+	}
 }
