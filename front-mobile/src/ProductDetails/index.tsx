@@ -1,11 +1,17 @@
 
-import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Image, Text, View } from 'react-native';
 import { Product } from '../types';
 import 'dayjs/locale/pt-br';
 import "intl";
 import "intl/locale-data/jsonp/pt-BR.js";
+import styles from './styles';
 
+const logo = {
+  uri: 'https://i.ytimg.com/vi/A3kQjw40Vvo/maxresdefault.jpg',
+  width: 200,
+  height: 200,
+};
 
 type Props = {
   product: Product;
@@ -25,63 +31,14 @@ function ProductCard({ product }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text>{product.name}</Text>
-        <Text>{formatPrice(product.price)}</Text>
+        <Text style={styles.productTitle}>{product.name}</Text>
+        <Text style={styles.productPrice}>{formatPrice(product.price)}</Text>
+
       </View>
+      <Image source={logo} />
+      <Text style={styles.description}>{product.description}</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: '10%',
-    marginLeft: '2%',
-    marginRight: '2%',
-    marginBottom: '2%',
-    padding: 15,
-    backgroundColor: '#FFF',
-    shadowOpacity: 0.25,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 20,
-    borderRadius: 10,
-    elevation: 5
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  text: {
-    fontWeight: 'normal',
-    fontSize: 14,
-    lineHeight: 19,
-    letterSpacing: -0.24,
-    color: '#9E9E9E',
-    fontFamily: 'OpenSans_400Regular'
-  },
-  orderName: {
-    fontWeight: 'bold',
-    fontSize: 18,
-    lineHeight: 25,
-    letterSpacing: -0.24,
-    color: '#263238',
-    fontFamily: 'OpenSans_700Bold'
-  },
-  orderPrice: {
-    fontWeight: 'bold',
-    fontSize: 18,
-    lineHeight: 25,
-    textAlign: 'right',
-    letterSpacing: -0.24,
-    color: '#DA5C5C',
-    fontFamily: 'OpenSans_700Bold'
-  },
-  productsList: {
-    borderTopColor: '#E6E6E6',
-    borderTopWidth: 1,
-    marginTop: 20,
-    paddingTop: 15
-  }
-});
 
 export default ProductCard;

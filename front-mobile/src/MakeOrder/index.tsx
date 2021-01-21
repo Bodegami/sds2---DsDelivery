@@ -4,14 +4,12 @@ import { Product } from '../types';
 import ProductCard from '../ProductDetails';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import { fetchProducts } from '../api';
-import { StyleSheet, ScrollView, Text, Alert } from 'react-native';
+import { ScrollView, Text, Alert } from 'react-native';
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-
-
-
+import styles from './styles';
 
 function MakeOrder() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigation = useNavigation();
   const isFocused = useIsFocused();
@@ -57,15 +55,5 @@ function MakeOrder() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingRight: "5%",
-    paddingLeft: "5%",
-  },
-});
-
-
-
 
 export default MakeOrder;

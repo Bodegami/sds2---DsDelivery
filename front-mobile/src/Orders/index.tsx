@@ -1,11 +1,12 @@
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, ScrollView, Text, Alert } from "react-native";
+import { ScrollView, Text, Alert } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { fetchOrders } from "../api";
 import Header from "../Header";
 import OrderCard from "../OrderCard";
 import { Order } from "../types";
+import styles from './styles';
 
 function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -53,12 +54,5 @@ function Orders() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingRight: "5%",
-    paddingLeft: "5%",
-  },
-});
 
 export default Orders;
